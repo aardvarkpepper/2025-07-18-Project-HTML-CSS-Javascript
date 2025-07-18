@@ -27,3 +27,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/position
 https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow
 https://www.w3schools.com/css/css_inline-block.asp
 https://www.w3schools.com/css/tryit.asp?filename=trycss_inline-block_span1
+https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+https://www.w3schools.com/css/css_align.asp
+https://fonts.google.com/selection?query=rubik

@@ -1,0 +1,33 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+#outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  text-align: center;
+  width: 1440px;
+  height: 900px;
+  font-size: 36px;
+  font-family: 'Rubik', Courier, monospace;
+}
+
+#top {
+  width: 1440px;
+  height: 280px;
+  background-image: url('./images/pattern-bg-desktop.png');
+}
+#bottom {
+  width: 1440px;
+  height: 520px;
+  background-color: red;
+}
