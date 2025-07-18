@@ -30,3 +30,8 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss_inline-block_span1
 https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
 https://www.w3schools.com/css/css_align.asp
 https://fonts.google.com/selection?query=rubik
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/text
+https://www.w3schools.com/css/css_form.asp
+https://www.w3schools.com/css/css3_borders.asp
+https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+https://forum.freecodecamp.org/t/how-can-i-avoid-the-square-box-around-the-button-when-i-click/413478/4

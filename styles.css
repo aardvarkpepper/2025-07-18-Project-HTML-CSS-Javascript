@@ -26,8 +26,32 @@
   height: 280px;
   background-image: url('./images/pattern-bg-desktop.png');
 }
+
 #bottom {
   width: 1440px;
   height: 520px;
   background-color: red;
+}
+
+#inner-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-field {
+  font-size: 1rem;
+  /* 1 rem = 16 px default, though actual rem size depends on size of root element's font-size */
+  padding: 20px 20px;
+  border-radius: 12px 0px 0px 12px;
+  border: none;
+}
+
+#input-button {
+  background-color: hsl(0, 0%, 17%);
+  /* background-color: red; */
+  height: 58px;
+  width: 58px;
+  border-radius: 0px 12px 12px 0px;
+  border: none;
 }
