@@ -16,6 +16,8 @@ Background images for desktop and mobile precisely match design spec desktop wid
 
 The issue with completely dynamic resizing is the center section.  With desktop view, four pieces of information are laid out horizontally with vertical dividers.  With mobile view, information is vertical with no dividers.  A third view (without specifications) would have to be created, and various screen sizes tested with other elements.  Perhaps a stretch goal.
 
+Ran npm install dotenv
+
 ## Features
 
 ## Additional Notes
@@ -48,3 +50,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
 https://www.geeksforgeeks.org/javascript/how-to-hide-api-key-in-javascript/
 https://dotenvx.com/docs/env-file
+https://upsun.com/blog/what-is-env-file/
+https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
+https://www.netlify.com/blog/a-guide-to-storing-api-keys-securely-with-environment-variables/
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files
+https://www.dotenv.org/docs/quickstart - note:  dotenvx may be new and free version; priced plans available.
