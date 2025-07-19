@@ -1,17 +1,6 @@
-// zoom etc. functionality doesn't work, link is dead.
-
 var map = L.map('map').setView([51.505, -0.09], 13);
-console.log(map); // Looks like there's setters and getters.  Above should work.  Toggles of class properties (mostly with _ prefixes) set to true.
-// e.g. console.log shows e.dragging._enabled: true before running any of the 'enables'.
 
-// map.zoomControl.enable();
-// map.touchZoom.enable();
-// map.doubleClickZoom.enable();
-// map.scrollWheelZoom.enable();
-// map.keyboard.enable();
-// map.zoomControl.enable();
-// map.dragging.enable();
-
+//console.log(map);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -30,16 +19,17 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var LeafIcon = L.Icon.extend({
   options: {
-    shadowUrl: 'leaf-shadow.png',
-    iconSize: [38, 95],
-    shadowSize: [50, 64],
+    // shadowUrl: 'leaf-shadow.png',
+    iconSize: [48, 56],
+    // shadowSize: [50, 64],
     iconAnchor: [22, 94],
-    shadowAnchor: [4, 62],
+    // shadowAnchor: [4, 62],
     popupAnchor: [-3, -76]
   }
 });
 
-var greenIcon = new LeafIcon({ iconUrl: 'leaf-green.png' });
+var greenIcon = new LeafIcon({ iconUrl: './images/icon-location.png' });
+//note:  iconUrl is relative to *index.html*.
 
 L.icon = function (options) {
   return new L.Icon(options);

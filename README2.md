@@ -70,4 +70,4 @@ https://imgbb.com/ - note:  Leaflet requires URL reference to image file.  Seems
 https://www.youtube.com/watch?v=GmH7qkdUy3Q (useless)
 https://stackoverflow.com/questions/73611765/how-to-create-a-button-to-enable-disable-zoom-and-pan-for-leaflet-in-javascript
 https://www.w3schools.com/tags/att_script_integrity.asp
-https://leafletjs.com/examples/map-panes/ note - the essential problem was Leaflet map rendered but no controls worked.
+https://leafletjs.com/examples/map-panes/ note - the essential problem was Leaflet map rendered but no controls worked.  z-index turned out to be the issue.
