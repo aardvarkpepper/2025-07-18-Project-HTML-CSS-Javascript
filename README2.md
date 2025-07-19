@@ -37,3 +37,5 @@ https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
 https://forum.freecodecamp.org/t/how-can-i-avoid-the-square-box-around-the-button-when-i-click/413478/4
 https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 https://www.freecodecamp.org/news/how-to-center-an-absolute-positioned-element/
+https://www.w3schools.com/cssref/pr_text_text-align.php
+https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing

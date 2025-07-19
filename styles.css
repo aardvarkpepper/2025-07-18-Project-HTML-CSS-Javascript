@@ -79,4 +79,41 @@
   right: 0;
   top: 199px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 76px;
+  background-color: hsl(0, 0%, 59%);
+}
+
+.subsection {
+  width: 276px;
+  display:flex;
+  flex-direction: column;
+}
+
+.subsection-container {
+  width: 212px;
+  height: 89px;
+  padding: 35px 32px;
+  text-align: left;
+}
+
+.subsection-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.07rem;
+  color: hsl(0, 0%, 59%);
+}
+
+.subsection-content {
+  /* width: 212px; */
+  width: 190px;
+  padding-top: 15px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
 }
