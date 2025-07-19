@@ -46,3 +46,5 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
 https://www.w3schools.com/cssref/pr_class_cursor.php
 https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+https://www.geeksforgeeks.org/javascript/how-to-hide-api-key-in-javascript/
+https://dotenvx.com/docs/env-file
