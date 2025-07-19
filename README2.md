@@ -55,3 +55,5 @@ https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-wi
 https://www.netlify.com/blog/a-guide-to-storing-api-keys-securely-with-environment-variables/
 https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files
 https://www.dotenv.org/docs/quickstart - note:  dotenvx may be new and free version; priced plans available.
+https://stackoverflow.com/questions/69099763/referenceerror-require-is-not-defined-in-es-module-scope-you-can-use-import-in
+https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x - note:  I'd run into require vs import issues already.  There's a lot of references on the internet that don't fix the issue.  Pieced it together from memory from other import issues from multiple earlier assignments.
