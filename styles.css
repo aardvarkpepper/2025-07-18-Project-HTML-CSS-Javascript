@@ -27,6 +27,13 @@
   background-image: url('./images/pattern-bg-desktop.png');
 }
 
+#top-title {
+  font-size: 2rem;
+  color: white;
+  padding: 28px 0px 28px 0px;
+  font-weight: 500;
+}
+
 #bottom {
   width: 1440px;
   height: 520px;
@@ -40,10 +47,10 @@
 }
 
 #input-field {
-  font-size: 1rem;
+  font-size: 1.16rem;
   /* 1 rem = 16 px default, though actual rem size depends on size of root element's font-size */
-  padding: 20px 20px;
-  border-radius: 12px 0px 0px 12px;
+  padding: 19px 23px;
+  border-radius: 14px 0px 0px 14px;
   border: none;
 }
 
@@ -52,6 +59,6 @@
   /* background-color: red; */
   height: 58px;
   width: 58px;
-  border-radius: 0px 12px 12px 0px;
+  border-radius: 0px 14px 14px 0px;
   border: none;
 }
