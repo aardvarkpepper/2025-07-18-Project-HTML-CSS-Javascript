@@ -64,3 +64,10 @@ https://stackoverflow.com/questions/69099763/referenceerror-require-is-not-defin
 https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x - note:  I'd run into require vs import issues already.  There's a lot of references on the internet that don't fix the issue.  Pieced it together from memory from other import issues from multiple earlier assignments.
 https://leafletjs.com/examples/quick-start/
 https://www.openstreetmap.org/copyright
+https://stackoverflow.com/questions/58932742/where-is-l-defined-in-leafletjs
+https://leafletjs.com/examples/custom-icons/
+https://imgbb.com/ - note:  Leaflet requires URL reference to image file.  Seems to be able to access local file though, after some investigation.
+https://www.youtube.com/watch?v=GmH7qkdUy3Q (useless)
+https://stackoverflow.com/questions/73611765/how-to-create-a-button-to-enable-disable-zoom-and-pan-for-leaflet-in-javascript
+https://www.w3schools.com/tags/att_script_integrity.asp
+https://leafletjs.com/examples/map-panes/ note - the essential problem was Leaflet map rendered but no controls worked.
