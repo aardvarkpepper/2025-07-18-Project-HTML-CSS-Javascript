@@ -70,4 +70,8 @@ export const fetchIPAddress = async () => {
   // console.log(data);
 }
 
+export const server = () => {
+  return 'server test';
+}
+
 fetchIPAddress();

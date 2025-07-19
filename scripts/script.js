@@ -1,39 +1,30 @@
-var map = L.map('map').setView([51.505, -0.09], 13);
+import { server } from './server/server.js';
 
-//console.log(map);
+console.log(server());
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+// var map = L.map('map').setView([51.505, -0.09], 13);
 
-// setTimeout(() => {
-//   console.log(map);
-// }, 0);
+// //console.log(map);
 
-// generic marker OK.
-//var marker = L.marker([51.5, -0.09]).addTo(map);
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//   maxZoom: 19,
+//   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// }).addTo(map);
 
-// https://leafletjs.com/examples/custom-icons/
-// can't access image.
+// var LeafIcon = L.Icon.extend({
+//   options: {
+//     iconSize: [48, 56],
+//     iconAnchor: [22, 94],
+//     popupAnchor: [-3, -76]
+//   }
+// });
 
-var LeafIcon = L.Icon.extend({
-  options: {
-    // shadowUrl: 'leaf-shadow.png',
-    iconSize: [48, 56],
-    // shadowSize: [50, 64],
-    iconAnchor: [22, 94],
-    // shadowAnchor: [4, 62],
-    popupAnchor: [-3, -76]
-  }
-});
+// var greenIcon = new LeafIcon({ iconUrl: './images/icon-location.png' });
+// //note:  iconUrl is relative to *index.html*.
 
-var greenIcon = new LeafIcon({ iconUrl: './images/icon-location.png' });
-//note:  iconUrl is relative to *index.html*.
+// L.icon = function (options) {
+//   return new L.Icon(options);
+// };
 
-L.icon = function (options) {
-  return new L.Icon(options);
-};
-
-L.marker([51.5, -0.09], { icon: greenIcon }).addTo(map).bindPopup("I am a green leaf.");
+// L.marker([51.5, -0.09], { icon: greenIcon }).addTo(map).bindPopup("IP address location.");
 
