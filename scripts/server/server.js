@@ -1,46 +1,26 @@
-/**
- * Initial dotenv test
- */ 
-console.log(`Your port is ${process.env.PORT}`); // undefined
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
-console.log(`Your port is ${process.env.PORT}`); // 8626
 
-// Load API key from environment variables
-const API_KEY = process.env.API_KEY;
-console.log(API_KEY);
+export const fetchIPAddress = async () => {
+  const API_KEY = process.env.API_KEY;
+  /**
+   * https://geo.ipify.org/docs
+   * sample fetch GET
+   * https://geo.ipify.org/api/v2/country?apiKey=at_dygXiAyAFC60JTbZW0qdTK0u2On7f&ipAddress=8.8.8.8
+   * ipAddress Optional. IPv4 or IPv6 to search location by.  If the parameter is not specified, then it defaults to client request's public IP address.
+   */
 
-/**
- * dotenv documentation base
- * Note:  Ctrl-C to break out in bash.
- * Unused, as I think this sets up a server.  Don't know if this may cause issues.
- * in .env would have
- * HELLO="World"
- * See https://www.dotenv.org/docs/quickstart for details.
- */
+  /**
+   * https://perscholas.instructure.com/courses/2754/pages/module-6-typescript-and-advanced-javascript?module_item_id=2196288
+   */
 
-// require('dotenv').config()
-// const PORT = process.env.PORT || 3000
-// const http = require('http')
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200
-//   res.setHeader('Content-Type', 'text/plain')
-//   res.end(`Hello ${process.env.HELLO}`)
-// })
+  console.log(API_KEY);
 
-// server.listen(PORT, () => {
-//   console.log(`Server running on port:${PORT}/`)
-// })
+  // const unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}`);
+  // const data = await unprocessedIPData.json();
+  // console.log(data);
 
-// app.get('/api/data', async (req, res) => {
-//     try {
-//         const response = await axios.get(`https://thirdpartyapi.com/data?key=${API_KEY}`);
-//         res.json(response.data);
-//     } catch (error) {
-//         res.status(500).send('Error fetching data');
-//     }
-// });
+}
 
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
+fetchIPAddress();
