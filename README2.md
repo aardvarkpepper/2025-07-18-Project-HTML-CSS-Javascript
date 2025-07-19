@@ -20,6 +20,10 @@ The issue with completely dynamic resizing is the center section.  With desktop 
 
 ## Additional Notes
 
+## Documentation
+
+https://www.figma.com/design/X9pKhlTqwUZCOfAU1mpx1J/Untitled?node-id=0-1&t=7B3e6CiRgQO8czYf-1
+
 ## Resources
 
 https://www.w3schools.com/css/css_positioning.asp
@@ -39,3 +43,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 https://www.freecodecamp.org/news/how-to-center-an-absolute-positioned-element/
 https://www.w3schools.com/cssref/pr_text_text-align.php
 https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+https://www.w3schools.com/cssref/pr_class_cursor.php
+https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
