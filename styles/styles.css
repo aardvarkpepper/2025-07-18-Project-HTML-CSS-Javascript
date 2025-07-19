@@ -28,7 +28,7 @@
 #top {
   width: 1440px;
   height: 280px;
-  background-image: url('./images/pattern-bg-desktop.png');
+  background-image: url('../images/pattern-bg-desktop.png');
 }
 
 #top-title {
@@ -38,10 +38,16 @@
   font-weight: 500;
 }
 
-#bottom {
+.bottom {
   width: 1440px;
   height: 520px;
-  background-color: red;
+  /* background-color: red; */
+}
+
+#map {
+  width: 1440px;
+  height: 520px;
+  z-index: -1;
 }
 
 #inner-input-container {
@@ -143,11 +149,10 @@
   flex-direction: column;
 }
 
-
 #mobile-top {
   width: 375px;
   height: 300px;
-  background-image: url('./images/pattern-bg-mobile.png');
+  background-image: url('../images/pattern-bg-mobile.png');
 }
 
 #mobile-top-title {
@@ -158,7 +163,7 @@
   font-weight: 500;
 }
 
-#mobile-bottom {
+.mobile-bottom {
   width: 375px;
   height: 528px;
   background-color: red;

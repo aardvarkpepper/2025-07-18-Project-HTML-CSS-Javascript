@@ -41,6 +41,7 @@ export const fetchIPAddress = async () => {
 
     /**
      * Take dataPromise and the const data below out when pushing to production.
+     * https://ps-lms.vercel.app/curriculum/se/413/lesson-6
      */
     const dataPromise = new Promise((resolve) => {
       setTimeout(() => {

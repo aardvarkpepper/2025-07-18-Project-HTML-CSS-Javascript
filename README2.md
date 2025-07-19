@@ -1,5 +1,10 @@
 Documentation: Include a comprehensive README.md file detailing the project setup, features, and any additional notes.
 
+## Attribution
+
+https://www.openstreetmap.org/copyright
+Data available under the Open Database License.
+
 ## Project Setup
 
 Downloaded zip file from provided link, unzipped.  Read through files, looked at design images.
@@ -57,3 +62,5 @@ https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/E
 https://www.dotenv.org/docs/quickstart - note:  dotenvx may be new and free version; priced plans available.
 https://stackoverflow.com/questions/69099763/referenceerror-require-is-not-defined-in-es-module-scope-you-can-use-import-in
 https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x - note:  I'd run into require vs import issues already.  There's a lot of references on the internet that don't fix the issue.  Pieced it together from memory from other import issues from multiple earlier assignments.
+https://leafletjs.com/examples/quick-start/
+https://www.openstreetmap.org/copyright
