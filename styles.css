@@ -57,6 +57,10 @@
   border: none;
 }
 
+#input-field:hover, #input-button:hover {
+  cursor: pointer;
+}
+
 #input-button {
   background-color: hsl(0, 0%, 17%);
   /* background-color: red; */
