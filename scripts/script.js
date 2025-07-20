@@ -1,4 +1,7 @@
-//import { server } from './server/server.js';
+// this causes dotenv issue
+import { server } from './server/server.js';
+
+console.log(`Server test success: ${server()}`);
 
 //console.log(server());
 

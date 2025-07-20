@@ -1,6 +1,25 @@
 {
+  "name": "2025-07-18-project-html-css-javascript",
+  "version": "1.0.0",
+  "description": "![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aardvarkpepper/2025-07-18-Project-HTML-CSS-Javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "type": "module",
+  "bugs": {
+    "url": "https://github.com/aardvarkpepper/2025-07-18-Project-HTML-CSS-Javascript/issues"
+  },
+  "homepage": "https://github.com/aardvarkpepper/2025-07-18-Project-HTML-CSS-Javascript#readme",
   "dependencies": {
-    "dotenv": "^17.2.0"
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0"
   }
 }

@@ -1,9 +1,51 @@
+// Seems not to work well.
 //const dotenv = require('dotenv');
-import dotenv from 'dotenv';
-dotenv.config();
+
+// works all right, but then doesn't like to import to script.js
+// Update - I think dotenv may have a compatability issue with HTML.  It'll work with Node, but something like HTML works off document. and Node works off process.  At any rate, apparently Express may be used to resolved, perhaps.
+//import dotenv from 'dotenv';
+
+// hm.
+// import * as dotenv from 'dotenv';
+
+//dotenv.config();
+
+/**
+ * Trying to use express with node
+ * After writing .env file and installing express with npm install express
+ * https://expressjs.com/en/starter/installing.html
+ * 
+ * using as guide
+ * https://medium.com/@tony.infisical/stop-using-dotenv-in-node-js-v20-6-0-8febf98f6314
+ * node --env-file=.env app.js in bash?
+ * Considering current file structure
+ * node --env-file=.env scripts/server/server.js
+ * OR
+ * node --env-file=.env scripts/server/server.mjs
+ * 'App listening on port 3000' displayed in console.
+ * In browser, http://localhost:3000/ shows '
+ * Hello! My name is Cinderella.
+ * (process.env successfully recovered.  Will this cause app to crash?)
+ * Also, it seems the user MUST probably use Node or something.  Hm.  Note to include instructionrs for use!
+ */
+
+
+//import express from "express";
+// const express = require("express");
+// const app = express();
+// const PORT = 3000;
+
+// app.get("/", async (req, res) => {
+//   res.send(`Hello! My name is ${process.env.NAME}.`);
+// });
+
+// app.listen(PORT, async () => {
+//   console.log(`App listening on port ${PORT}`);
+// });
 
 export const fetchIPAddress = async () => {
-  const API_KEY = process.env.API_KEY;
+  //const API_KEY = process.env.API_KEY;
+  const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
   /**
    * https://geo.ipify.org/docs
    * sample fetch GET
@@ -16,6 +58,7 @@ export const fetchIPAddress = async () => {
    */
 
 
+  // Level 1 (lacks lat/long)
   // {
   //   ip: '71.183.93.127',
   //     location: { country: 'US', region: 'New York', timezone: '-04:00' },
@@ -29,6 +72,29 @@ export const fetchIPAddress = async () => {
   //   isp: 'Verizon'
   // }
 
+  // Level 2 (with lat/long)
+  //   {
+  //   ip: '71.183.93.127',
+  //   location: {
+  //     country: 'US',
+  //     region: 'New York',
+  //     city: 'New York City',
+  //     lat: 40.71427,
+  //     lng: -74.00597,
+  //     postalCode: '10001',
+  //     timezone: '-04:00',
+  //     geonameId: 5128581
+  //   },
+  //   as: {
+  //     asn: 701,
+  //     name: 'UUNET',
+  //     route: '71.183.0.0/17',
+  //     domain: 'https://www.verizon.com/business/',
+  //     type: 'NSP'
+  //   },
+  //   isp: 'Verizon'
+  // }
+
 
   //console.log(API_KEY);
   try {
@@ -36,18 +102,28 @@ export const fetchIPAddress = async () => {
      * Restore below two lines of code when pushing to production.
      */
 
-    // const unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}`);
+    // const unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
     // const data = await unprocessedIPData.json();
 
     /**
      * Take dataPromise and the const data below out when pushing to production.
      * https://ps-lms.vercel.app/curriculum/se/413/lesson-6
      */
+
     const dataPromise = new Promise((resolve) => {
       setTimeout(() => {
         resolve({
           ip: '71.183.93.127',
-          location: { country: 'US', region: 'New York', timezone: '-04:00' },
+          location: {
+            country: 'US',
+            region: 'New York',
+            city: 'New York City',
+            lat: 40.71427,
+            lng: -74.00597,
+            postalCode: '10001',
+            timezone: '-04:00',
+            geonameId: 5128581
+          },
           as: {
             asn: 701,
             name: 'UUNET',
@@ -60,8 +136,9 @@ export const fetchIPAddress = async () => {
       })
     })
     const data = await dataPromise;
+
     // above through dataPromise to be removed when pushing to production.  Re-activate the fetch.
-    //console.log(data);
+    console.log(data);
     return data;
 
   } catch (error) {

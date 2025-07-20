@@ -23,6 +23,8 @@ The issue with completely dynamic resizing is the center section.  With desktop 
 
 Ran npm install dotenv
 
+Seems like dotenv may be incompatible with front-end centric approach.  Specifically, seems .env through dotenv requires a server, that is, setting up with Express.  So it's use webpack, or Express, or so it seems at the moment.
+
 ## Features
 
 ## Additional Notes
@@ -71,3 +73,18 @@ https://www.youtube.com/watch?v=GmH7qkdUy3Q (useless)
 https://stackoverflow.com/questions/73611765/how-to-create-a-button-to-enable-disable-zoom-and-pan-for-leaflet-in-javascript
 https://www.w3schools.com/tags/att_script_integrity.asp
 https://leafletjs.com/examples/map-panes/ note - the essential problem was Leaflet map rendered but no controls worked.  z-index turned out to be the issue.
+
+https://stackoverflow.com/questions/66631773/failed-to-resolve-module-specifier-dotenv-relative-references-must-start-with (useless)
+https://www.reddit.com/r/node/comments/yp7zkq/dotenv_error/ (useless)
+https://github.com/motdotla/dotenv/issues/821 (useless)
+https://dev.to/thepassle/the-javascript-ecosystem-for-the-dazed-and-confused-36il (possibly differences between Node and browser cause issue)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+https://stackoverflow.com/questions/69347533/javascript-not-loading-in-when-importing-other-script
+https://forum.freecodecamp.org/t/why-import-in-js-not-working/328947
+https://medium.com/@tony.infisical/stop-using-dotenv-in-node-js-v20-6-0-8febf98f6314
+https://expressjs.com/
+https://expressjs.com/en/starter/installing.html
+
+
+note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
+
