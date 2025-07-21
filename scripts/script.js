@@ -51,7 +51,7 @@ const reInitializeMapView = () => {
   } else if ((window.innerHeight >= 800 && window.innerWidth >= 1440) && !desktopView) {
     desktopView = true;
   }
-  console.log(`reInitializeMapView invoked with desktopView ${desktopView}`);
+  //console.log(`reInitializeMapView invoked with desktopView ${desktopView}`);
 }
 
 reInitializeMapView();
@@ -64,7 +64,7 @@ const setWidthHeight = (htmlElement, width, height) => {
 function changeDimensions() {
   if ((window.innerHeight < 800 || window.innerWidth < 1440) && desktopView) {
     desktopView = false;
-    console.log('attempting mobile view');
+    //console.log('attempting mobile view');
     // no need to do expensive dom operations if not needed.
     setWidthHeight(container, 375, 828);
     // 'top' may be a reserved word (?);
@@ -103,7 +103,7 @@ function changeDimensions() {
     }
   } else if ((window.innerHeight >= 800 && window.innerWidth >= 1440) && !desktopView) {
     desktopView = true;
-    console.log('attempting desktop view');
+    //console.log('attempting desktop view');
     setWidthHeight(container, 1440, 900);
     setWidthHeight(topId, 1440, 280);
     inputField.size = "48";
@@ -181,9 +181,9 @@ goMap();
 inputButton.addEventListener('click', async (event) => {
   // test for 192.212.174.101, London.
   const inputString = inputField.value;
-  console.log(inputString);
-  console.log(`Is it an IP address? ${isLegalIPAddress(inputString)}`);
-  console.log(`attempting to print map ${JSON.stringify(L)}`);
+  // console.log(inputString);
+  // console.log(`Is it an IP address? ${isLegalIPAddress(inputString)}`);
+  // console.log(`attempting to print map ${JSON.stringify(L)}`);
   let data;
 
   if (isLegalIPAddress(inputString)) {
@@ -200,7 +200,7 @@ inputButton.addEventListener('click', async (event) => {
         ipAddress.textContent = `${data.ip}`;
         ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
         ipTimezone.textContent = `UTC ${data.location.timezone}`;
-        console.log(`ipIsp.textContent = ${data.isp}`);
+        //console.log(`ipIsp.textContent = ${data.isp}`);
         if (data.isp === '') {
           ipIsp.textContent = `Data not available`
         } else {
@@ -225,7 +225,7 @@ inputButton.addEventListener('click', async (event) => {
         ipAddress.textContent = `${data.ip}`;
         ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
         ipTimezone.textContent = `UTC ${data.location.timezone}`;
-        console.log(`ipIsp.textContent = ${data.isp}`);
+        //console.log(`ipIsp.textContent = ${data.isp}`);
         if (data.isp === '') {
           ipIsp.textContent = `Data not available`
         } else {
