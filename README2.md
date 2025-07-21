@@ -85,6 +85,25 @@ https://medium.com/@tony.infisical/stop-using-dotenv-in-node-js-v20-6-0-8febf98f
 https://expressjs.com/
 https://expressjs.com/en/starter/installing.html
 
+https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+https://developer.mozilla.org/en-US/docs/Web/API/Element/id
+https://www.w3schools.com/jsref/prop_html_id.asp
+https://www.w3schools.com/jsref/prop_style_backgroundimage.asp
+https://www.w3schools.com/jsref/prop_style_fontsize.asp
+https://www.w3schools.com/jsref/prop_style_letterspacing.asp
+https://www.w3schools.com/jsref/prop_style_padding.asp
+https://www.w3schools.com/jsref/prop_style_fontweight.asp
+https://www.w3schools.com/jsref/prop_style_top.asp
+https://www.w3schools.com/jsref/prop_style_flexdirection.asp
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+https://www.w3schools.com/jsref/prop_style_display.asp
+https://www.w3schools.com/jsref/prop_style_margintop.asp
+https://www.w3schools.com/jsref/prop_style_textalign.asp
+https://www.w3schools.com/jsref/prop_style_paddingtop.asp
+
+https://stackoverflow.com/questions/8101364/javascript-to-get-running-processes note - in sum, states browser javascript environment is isolated from system processes for privacy and security reasons.  So document. (browser) and process. (system) will not be able to interact.  There's probably some workaround, but that's outside the scope of the assignment.
+
 
 note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
 

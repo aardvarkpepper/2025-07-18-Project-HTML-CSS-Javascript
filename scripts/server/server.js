@@ -3,12 +3,12 @@
 
 // works all right, but then doesn't like to import to script.js
 // Update - I think dotenv may have a compatability issue with HTML.  It'll work with Node, but something like HTML works off document. and Node works off process.  At any rate, apparently Express may be used to resolved, perhaps.
-//import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 // hm.
 // import * as dotenv from 'dotenv';
 
-//dotenv.config();
+dotenv.config();
 
 /**
  * Trying to use express with node
@@ -43,9 +43,11 @@
 //   console.log(`App listening on port ${PORT}`);
 // });
 
+export const API_KEY = process.env.API_KEY;
+
 export const fetchIPAddress = async () => {
   //const API_KEY = process.env.API_KEY;
-  const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
+  //const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
   /**
    * https://geo.ipify.org/docs
    * sample fetch GET
