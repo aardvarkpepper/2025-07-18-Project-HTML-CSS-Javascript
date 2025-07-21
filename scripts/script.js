@@ -1,6 +1,6 @@
 // this causes dotenv issue
-//import { fetchIPAddress } from './server/server.js';
-//import { API_KEY } from './server/server.js';
+import { fetchIPAddress } from './server/server.js';
+import { API_KEY } from './server/server.js';
 
 //console.log(`API key ${API_KEY}`);
 //console.log(`Server test success: ${server()}`);
@@ -18,6 +18,11 @@ const subsectionContainerTop = document.getElementById('subsection-container-top
 const subsectionContainers = document.getElementsByClassName('subsection-container');
 const subsectionTitles = document.getElementsByClassName('subsection-title');
 const subsectionContents = document.getElementsByClassName('subsection-content');
+
+const ipAddress = document.getElementById('ip-address'); // 192.212.174.101
+const ipLocation = document.getElementById('ip-location'); // Brooklyn, NY 10001
+const ipTimezone = document.getElementById('ip-timezone'); // UTC -05:00
+const ipIsp = document.getElementById('ip-isp'); // SpaceX Starlink
 
 let desktopView = true;
 
@@ -51,7 +56,7 @@ function changeDimensions() {
     setWidthHeight(bottom, 375, 528);
     inputField.style.fontSize = "1.14rem";
     inputField.style.padding = "18px 23px";
-    inputField.size="22";
+    inputField.size = "22";
     setWidthHeight(center, 327, 295);
     center.style.top = "167px";
     center.style.flexDirection = "column";
@@ -82,7 +87,7 @@ function changeDimensions() {
     console.log('attempting desktop view');
     setWidthHeight(container, 1440, 900);
     setWidthHeight(topId, 1440, 280);
-    inputField.size="48";
+    inputField.size = "48";
     topId.style.backgroundImage = '../images/pattern-bg-desktop.png';
     topTitle.style.fontSize = "2rem";
     topTitle.style.letterSpacing = "";
@@ -123,8 +128,22 @@ window.onresize = changeDimensions;
 
 //console.log(server());
 
-const goMap = () => {
-  var map = L.map('map').setView([51.505, -0.09], 13);
+const goMap = async () => {
+  const data = await fetchIPAddress();
+  //   const ipAddress = document.getElementById('ip-address'); // 192.212.174.101
+  // const ipLocation = document.getElementById('ip-location'); // Brooklyn, NY 10001
+  // const ipTimezone = document.getElementById('ip-timezone'); // UTC -05:00
+  // const ipIsp = document.getElementById('ip-isp'); // SpaceX Starlink
+  ipAddress.textContent = `${data.ip}`;
+  ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+  ipTimezone.textContent = `UTC ${data.location.timezone}`;
+  ipIsp.textContent = `${data.isp}`;
+  const lat = data.location.lat;
+  const lng = data.location.lng;
+  //console.log(`Lat ${lat}, long ${lng}`);
+  //var map = L.map('map').setView([51.505, -0.09], 13);
+  var map = L.map('map').setView([lat, lng], 13);
+
 
   //console.log(map);
 
@@ -148,7 +167,7 @@ const goMap = () => {
     return new L.Icon(options);
   };
 
-  L.marker([51.5, -0.09], { icon: blackIcon }).addTo(map).bindPopup("IP address location.");
+  L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.");
 }
 
 goMap();
