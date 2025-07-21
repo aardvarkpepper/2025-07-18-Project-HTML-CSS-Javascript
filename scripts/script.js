@@ -190,66 +190,54 @@ inputButton.addEventListener('click', async (event) => {
     // probably stick this stuff inside a function and call it on the else too.
     try {
       data = await fetchIPAddress(inputString, null);
-      const lat = data.location.lat;
-      const lng = data.location.lng;
-      map.setView(new L.LatLng(lat, lng), 13);
-      ipAddress.textContent = `${data.ip}`;
-      ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
-      ipTimezone.textContent = `UTC ${data.location.timezone}`;
-      console.log(`ipIsp.textContent = ${data.isp}`);
-      if (data.isp === '') {
-        ipIsp.textContent = `Data not available.`
+      //{"code":422,"messages":"Input correct domain."}
+      if (data.code === 422) {
+        inputField.value = `${inputString} not valid IP.`
       } else {
-        ipIsp.textContent = `${data.isp}`
+        const lat = data.location.lat;
+        const lng = data.location.lng;
+        map.setView(new L.LatLng(lat, lng), 13);
+        ipAddress.textContent = `${data.ip}`;
+        ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+        ipTimezone.textContent = `UTC ${data.location.timezone}`;
+        console.log(`ipIsp.textContent = ${data.isp}`);
+        if (data.isp === '') {
+          ipIsp.textContent = `Data not available`
+        } else {
+          ipIsp.textContent = `${data.isp}`
+        }
+        // I've got another marker floating around but eh.
+        L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
       }
-      // I've got another marker floating around but eh.
-      L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
     } catch (error) {
       console.error(`error`);
       console.log(`Code: ${error.code}, Messages ${error.messages}, on scriptLegalIPAddress`)
     }
-
   } else {
     try {
-
-
-      data = await fetchIPAddress(null, inputString); // sends argument domain
-      const lat = data.location.lat;
-      const lng = data.location.lng;
-      map.setView(new L.LatLng(lat, lng), 13);
-      ipAddress.textContent = `${data.ip}`;
-      ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
-      ipTimezone.textContent = `UTC ${data.location.timezone}`;
-      console.log(`ipIsp.textContent = ${data.isp}`);
-      if (data.isp === '') {
-        ipIsp.textContent = `Data not available.`
+      if (data.code === 422) {
+        inputField.value = `${inputString} not valid domain.`
       } else {
-        ipIsp.textContent = `${data.isp}`
+        data = await fetchIPAddress(null, inputString); // sends argument domain
+        const lat = data.location.lat;
+        const lng = data.location.lng;
+        map.setView(new L.LatLng(lat, lng), 13);
+        ipAddress.textContent = `${data.ip}`;
+        ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+        ipTimezone.textContent = `UTC ${data.location.timezone}`;
+        console.log(`ipIsp.textContent = ${data.isp}`);
+        if (data.isp === '') {
+          ipIsp.textContent = `Data not available`
+        } else {
+          ipIsp.textContent = `${data.isp}`
+        }
+        L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
       }
-      L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
-    }
-    catch (error) {
+    } catch (error) {
       console.error(`error`, error);
       console.log(`Code: ${error.code}, Messages ${error.messages} on scriptDomain`)
-    }
-  }
-
-
-
-
-  // for now, console.log whether it is a valid ip address or domain.
-  // We don't know if domain string will actually be a domain, so this is going to . . . possibly throw an error.  IP address could also be bogus.
-  // At any rate, if it is invalid (we won't know until we send it to Leaflet and it pops some sort of error, if it even will) - if it is invalid, then some sort of feedback on that (probably stick it in the input field), and do NOT call the method to refocus the map.
-  // if it IS valid, then pop in the map.  Okay.
-  /**
-   * ipAddress
-Optional. IPv4 or IPv6 to search location by.
-
-If the parameter is not specified, then it defaults to client request's public IP address.
-domain
-Optional. Domain name to search location by.
-
-If the parameter is not specified, then 'ipAddress' will be used.
-   */
+    }}
+    //else
 })
+// addEventListener
 

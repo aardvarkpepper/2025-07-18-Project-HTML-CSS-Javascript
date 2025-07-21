@@ -17,6 +17,8 @@ Responsive design for desktop and mobile.  Use of IP Geolocation API by IPify an
 
 IP Geolocation API does not return an error on submission of an invalid IP address or domain.  Rather, it returns an object {"code":422,"messages":"Input correct domain."} (or "messages" as appropriate) as a successful resolve of the fetch request.
 
+
+
 note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
 
 
@@ -105,3 +107,4 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expression
 https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
 https://stackoverflow.com/questions/12735303/how-to-change-the-map-center-in-leaflet-js
 https://www.youtube.com/watch?v=Ym5IjJyI1qA
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions

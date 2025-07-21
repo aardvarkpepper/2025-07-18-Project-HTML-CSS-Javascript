@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,11 +23,11 @@
   <div id="view-desktop">
     <div id="container">
       <div id="topId">
-        <div id="top-title">IP Address Tracker</div>
+        <header id="top-title">IP Address Tracker</header>
         <div id="outer-input-container">
           <div id="inner-input-container">
             <input id="input-field" type="text" placeholder="Search for any IP address or domain" size="48" />
-            <button id="input-button" type="button">
+            <button id="input-button" type="button" aria-label="Click to enter submit input field's entry of IP address or domain.">
               <img src="./images/icon-arrow.svg" alt="Button icon indicating input">
             </button>
           </div>
@@ -42,40 +40,40 @@
             <div class="subsection-title">
               IP ADDRESS
             </div>
-            <div class="subsection-content" id="ip-address">
+            <div class="subsection-content" id="ip-address" aria-label="IP address" aria-live="polite">
               192.212.174.101
             </div>
           </div>
         </div>
-        <div class="vertical-divider"></div>
+        <div class="vertical-divider" aria-hidden="true"></div>
         <div class="subsection">
           <div class="subsection-container">
             <div class="subsection-title">
               LOCATION
             </div>
-            <div class="subsection-content" id="ip-location">
+            <div class="subsection-content" id="ip-location" aria-label="City, Region, and Postal Code" aria-live="polite">
               Brooklyn, NY 10001
             </div>
           </div>
         </div>
-        <div class="vertical-divider"></div>
+        <div class="vertical-divider" aria-hidden="true"></div>
         <div class="subsection">
           <div class="subsection-container">
             <div class="subsection-title">
               TIMEZONE
             </div>
-            <div class="subsection-content" id="ip-timezone">
+            <div class="subsection-content" id="ip-timezone" aria-label="Timezone" aria-live="polite">
               UTC -05:00
             </div>
           </div>
         </div>
-        <div class="vertical-divider"></div>
+        <div class="vertical-divider" aria-hidden="true"></div>
         <div class="subsection">
           <div class="subsection-container">
             <div class="subsection-title">
               ISP
             </div>
-            <div class="subsection-content" id="ip-isp">
+            <div class="subsection-content" id="ip-isp" aria-label="Internet Service Provider" aria-live="polite">
               SpaceX Starlink
             </div>
           </div>
@@ -83,67 +81,7 @@
       </div>
     </div>
   </div>
-  <!-- <div id="view-mobile">
-    <div id="mobile-container">
-      <div id="mobile-top">
-        <div id="mobile-top-title">IP Address Tracker</div>
-        <div id="mobile-outer-input-container">
-          <div id="mobile-inner-input-container">
-            <input id="mobile-input-field" type="text" placeholder="192.212.174.101" size="22" />
-            <button id="mobile-input-button" type="button">
-              <img src="./images/icon-arrow.svg" alt="Button icon indicating input">
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="mobile-bottom"></div>
-      <div id="mobile-center">
-        <div class="mobile-subsection">
-          <div class="mobile-subsection-container" id="mobile-top-container">
-            <div class="mobile-subsection-title">
-              IP ADDRESS
-            </div>
-            <div class="mobile-subsection-content">
-              192.212.174.101
-            </div>
-          </div>
-        </div>
-        <div class="mobile-subsection">
-          <div class="mobile-subsection-container">
-            <div class="mobile-subsection-title">
-              LOCATION
-            </div>
-            <div class="mobile-subsection-content">
-              Brooklyn, NY 10001
-            </div>
-          </div>
-        </div>
-        <div class="mobile-subsection">
-          <div class="mobile-subsection-container">
-            <div class="mobile-subsection-title">
-              TIMEZONE
-            </div>
-            <div class="mobile-subsection-content">
-              UTC -05:00
-            </div>
-          </div>
-        </div>
-        <div class="mobile-subsection">
-          <div class="mobile-subsection-container">
-            <div class="mobile-subsection-title">
-              ISP
-            </div>
-            <div class="mobile-subsection-content">
-              SpaceX Starlink
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <script src="./scripts/script.js" type="module"></script>
-
 </body>
-
 </html>
