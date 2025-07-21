@@ -1,109 +1,107 @@
-# Frontend Mentor - IP address tracker
+## Attribution
 
-![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)
+https://www.openstreetmap.org/copyright
+Data available under the Open Database License.
 
-## Welcome! 👋
+## Project Setup
 
-Thanks for checking out this front-end coding challenge.
+Downloaded zip file from provided link, unzipped.  Read through files, looked at design images.
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+Copied images into Figma.  Figma has tools that allow drawing of shapes and lines, with utilities such as rounding corners of boxes.  Dimensions of elements can be measured to get some idea of precise pixel sizes.
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+## Features
 
-## The challenge
+Responsive design for desktop and mobile.  Use of IP Geolocation API by IPify and Leaflet (using built-in OpenStreetMap).  Use of Google Font.  View your own IP address on a map, or input valid IP address or domain to see its location.
 
-Your challenge is to build out this IP Address Tracker app and get it looking as close to the design as possible. To get the IP Address locations, you'll be using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).
+## Additional Notes
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+IP Geolocation API does not return an error on submission of an invalid IP address or domain.  Rather, it returns an object {"code":422,"messages":"Input correct domain."} (or "messages" as appropriate) as a successful resolve of the fetch request.
 
-Your users should be able to:
+note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements on the page
-- See their own IP address on the map on the initial page load
-- Search for any IP addresses or domains and see the key information and location
 
----
+## Documentation
 
-⚠️ **IMPORTANT** ⚠️: To use the IP Geolocation API by IPify, you'll need to sign up for a free account. You won't need to add any cards details to do this and it's a very quick process. This will generate an API Key for you. Usually, you would be able to restrict your API Key to a specific URL (your own domain). This makes sure that other people can't use your API Key on their own websites. IPify doesn't have this feature, but because you aren't adding your card details, this isn't an issue. **So be sure to only sign up for the free account and DO NOT enter any card details**.
+https://www.figma.com/design/X9pKhlTqwUZCOfAU1mpx1J/Untitled?node-id=0-1&t=7B3e6CiRgQO8czYf-1
 
-For the mapping API, we recommend using [LeafletJS](https://leafletjs.com/). It's free to use and doesn't require an API Key. If you decide to use another API, like Google Maps or Mapbox, be sure to secure your API Key. Here are guides for both Google Maps and Mapbox, be sure to read through them thoroughly:
+## Resources
 
-- [API Key best practices from Google Developers](https://developers.google.com/maps/api-key-best-practices)
-- [How to use Mapbox securely](https://docs.mapbox.com/help/troubleshooting/how-to-use-mapbox-securely/)
+https://www.w3schools.com/css/css_positioning.asp
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow
+https://www.w3schools.com/css/css_inline-block.asp
+https://www.w3schools.com/css/tryit.asp?filename=trycss_inline-block_span1
+https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+https://www.w3schools.com/css/css_align.asp
+https://fonts.google.com/selection?query=rubik
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/text
+https://www.w3schools.com/css/css_form.asp
+https://www.w3schools.com/css/css3_borders.asp
+https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+https://forum.freecodecamp.org/t/how-can-i-avoid-the-square-box-around-the-button-when-i-click/413478/4
+https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+https://www.freecodecamp.org/news/how-to-center-an-absolute-positioned-element/
+https://www.w3schools.com/cssref/pr_text_text-align.php
+https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+https://www.w3schools.com/cssref/pr_class_cursor.php
+https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+https://www.geeksforgeeks.org/javascript/how-to-hide-api-key-in-javascript/
+https://dotenvx.com/docs/env-file
+https://upsun.com/blog/what-is-env-file/
+https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
+https://www.netlify.com/blog/a-guide-to-storing-api-keys-securely-with-environment-variables/
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files
+https://www.dotenv.org/docs/quickstart - note:  dotenvx may be new and free version; priced plans available.
+https://stackoverflow.com/questions/69099763/referenceerror-require-is-not-defined-in-es-module-scope-you-can-use-import-in
+https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x - note:  I'd run into require vs import issues already.  There's a lot of references on the internet that don't fix the issue.  Pieced it together from memory from other import issues from multiple earlier assignments.
+https://leafletjs.com/examples/quick-start/
+https://www.openstreetmap.org/copyright
+https://stackoverflow.com/questions/58932742/where-is-l-defined-in-leafletjs
+https://leafletjs.com/examples/custom-icons/
+https://imgbb.com/ - note:  Leaflet requires URL reference to image file.  Seems to be able to access local file though, after some investigation.
+https://www.youtube.com/watch?v=GmH7qkdUy3Q (useless)
+https://stackoverflow.com/questions/73611765/how-to-create-a-button-to-enable-disable-zoom-and-pan-for-leaflet-in-javascript
+https://www.w3schools.com/tags/att_script_integrity.asp
+https://leafletjs.com/examples/map-panes/ note - the essential problem was Leaflet map rendered but no controls worked.  z-index turned out to be the issue.
 
-Exposing your API Key publicly can lead to other people using it to make requests for their own application if the proper precautions aren't in place. Please be sure you read the guides thoroughly and follow their recommendations.
+https://stackoverflow.com/questions/66631773/failed-to-resolve-module-specifier-dotenv-relative-references-must-start-with (useless)
+https://www.reddit.com/r/node/comments/yp7zkq/dotenv_error/ (useless)
+https://github.com/motdotla/dotenv/issues/821 (useless)
+https://dev.to/thepassle/the-javascript-ecosystem-for-the-dazed-and-confused-36il (possibly differences between Node and browser cause issue)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+https://stackoverflow.com/questions/69347533/javascript-not-loading-in-when-importing-other-script
+https://forum.freecodecamp.org/t/why-import-in-js-not-working/328947
+https://medium.com/@tony.infisical/stop-using-dotenv-in-node-js-v20-6-0-8febf98f6314
+https://expressjs.com/
+https://expressjs.com/en/starter/installing.html
 
-**We don't take any responsibility if you expose your API Key while completing the challenge and have not secured it.**
+https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+https://developer.mozilla.org/en-US/docs/Web/API/Element/id
+https://www.w3schools.com/jsref/prop_html_id.asp
+https://www.w3schools.com/jsref/prop_style_backgroundimage.asp
+https://www.w3schools.com/jsref/prop_style_fontsize.asp
+https://www.w3schools.com/jsref/prop_style_letterspacing.asp
+https://www.w3schools.com/jsref/prop_style_padding.asp
+https://www.w3schools.com/jsref/prop_style_fontweight.asp
+https://www.w3schools.com/jsref/prop_style_top.asp
+https://www.w3schools.com/jsref/prop_style_flexdirection.asp
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+https://www.w3schools.com/jsref/prop_style_display.asp
+https://www.w3schools.com/jsref/prop_style_margintop.asp
+https://www.w3schools.com/jsref/prop_style_textalign.asp
+https://www.w3schools.com/jsref/prop_style_paddingtop.asp
 
----
+https://stackoverflow.com/questions/8101364/javascript-to-get-running-processes note - in sum, states browser javascript environment is isolated from system processes for privacy and security reasons.  So document. (browser) and process. (system) will not be able to interact.  There's probably some workaround, but that's outside the scope of the assignment.
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
-
-## Where to find everything
-
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
-
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
-
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
-
-You will find all the required assets in the `/images` folder. The assets are already optimized.
-
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
-
-## Building your project
-
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
-
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
-
-## Deploying your project
-
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions, the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
+https://en.wikipedia.org/wiki/IP_address
+https://en.wikipedia.org/wiki/IPv4
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv6_CIDR_blocks
+https://www.rexegg.com/regex-quickstart.php
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
+https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+https://stackoverflow.com/questions/12735303/how-to-change-the-map-center-in-leaflet-js
+https://www.youtube.com/watch?v=Ym5IjJyI1qA
