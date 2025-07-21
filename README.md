@@ -9,20 +9,43 @@ Downloaded zip file from provided link, unzipped.  Read through files, looked at
 
 Copied images into Figma.  Figma has tools that allow drawing of shapes and lines, with utilities such as rounding corners of boxes.  Dimensions of elements can be measured to get some idea of precise pixel sizes.
 
+From there, I had dimensions to work with.  Read documentation on IP Geolcation API by IPify, Leaflet.  Read up on indirectly related topics like securing API keys.  Did npm install of dotenv and express.
+
 ## Features
 
-Responsive design for desktop and mobile.  Use of IP Geolocation API by IPify and Leaflet (using built-in OpenStreetMap).  Use of Google Font.  View your own IP address on a map, or input valid IP address or domain to see its location.
+Responsive design for desktop and mobile.  Use of IP Geolocation API by IPify and Leaflet (using built-in OpenStreetMap).  Use of Google Font.  View your own IP address on a map, or input valid IP address or domain to see its location.  HTML elements use ARIA (Accessible Rich Internet Applications) where appropriate and/or necessary.
 
 ## Additional Notes
 
 IP Geolocation API does not return an error on submission of an invalid IP address or domain.  Rather, it returns an object {"code":422,"messages":"Input correct domain."} (or "messages" as appropriate) as a successful resolve of the fetch request.
 
+## Challenges Faced
 
+Felt generally unwell, which was a challenge of itself.  This also caused me to not think clearly, increasing time required on matters that should have been routine like remembering multiple fields to fix for comparisons between Figma and HTML/CSS, or time needed to process and understand documentation.
 
-note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
+Spent a lot of time between Figma, HTML, and CSS styling to get results within a pixel or less of design specifications.  I think that level of precision may not have been expected for the assignment.
 
+One of the major early issues was getting Leaflet functionality to work.  The issue turned out to be z-index; Leaflet does not work correctly if the div it uses is set to a different z-level than expected.  Tried rather a lot of things, including looking at the code (fairly incomprehensible, in scripts/wonderfulMystery.js), reading a lot of useless help articles, then set up a separate test website with stripped-down functionality to isolate behaviors.  On isolating issue and reading articles, it appears the default z-index is set to 650 or some such thing; changing it breaks the map functionality, and I'd set it to -1 or something like that to work with my CSS layout.
+
+Another major early issue was securing API keys.  It seems that npm dotenv uses 'process.' while the browser uses 'document.' or 'window.'  At any rate, the browser seemingly doesn't have access to 'process.' for privacy and security issues.  I'd read that npm express could be used to address the issue, but I didn't get a working solution in time.  I did manage to get express working on a local port, and to display a webpage, but the assignment wasn't to write things in express.  As a workaround I can expose the API key; it's not linked to any sort of paying account (though API usage is sharply limited).  I haven't deployed yet, so I don't know if I'll be able to get Netlify's .env working.  At any rate, spent a lot of time on this.
+
+A third issue was getting my design to work with Leaflet.  I learned early from documentation that Leaflet rendered onto a div with id 'map'; I created one desktop view and one mobile view, hiding or displaying them alternately using media queries.  (This approach let me prototype both views early, and would have reduced DOM operations).  I got commands working for detecting and acting when the window was resized, but the problem was assigning id 'map' to another HTML element did not cause the map to switch.  I again attempted isolating behavior, but was unsuccessful in resolving this issue.  I ended up changing properties of existing HTML elements depending on window size - a more time-consuming operation as far as writing code was concerned, but possibly inevitable.  (I could have tried persisting with getting Leaflet to work with reassigning "id", but time was running short and that solution was not certain).
+
+## Potential Improvements
+
+I spent enough time on Figma between this and other projects that I think I ought to look at some point at writing some functions to automate matching and resizing of elements.  That would require some sort of code to identify HTML elements from a picture; possibly when I get some more time and look more into costs of LLM visual integration.  I don't imagine it would be cheap.
+
+Validation on IP address/domain input is pretty bare-bones.  Given time, I'd look more into what exactly constitutes IPv4 and IPv6 - for example, are there IPv4 addresses that exist in the syntax but not in real life, or are certain combinations of hexadecimals not possible in extant IPv6 addresses?  There's probably also a data set and/or API somewhere of existing domains that could be used for validation.
+
+As design was constrained by specifications provided by Frontend Mentor, some features were not in line with recommended WCAG/WAI - for example, font size, and font color for placeholder text in the input field.  But besides that is the question of basic user functionality.  If an app is going to go to the trouble of showing a map with a marker on it, I'd say it shouldn't fill up a lot of the map with a centrally placed text screen that displays over the map, and leave a lot of empty unused space.  A simple design is visually appealing, but utility is important too.
+
+The app feature set is too bare for my taste.  Yes, it's interesting that a user can see a map and marker of their internet service provider, or put in another IP and see a location, but that's quite limited.  I'd probably want to think about related additional features to add, like building a database of nearby ISPs and show comparative service costs per service period - or anything, really, that would get a user interested in using the site repeatedly.
+
+Finally, I don't know whether or not there's a way to secure API keys through the current tech stack of HTML, CSS, and Javascript.  I'll find out shortly if I can secure through Netlify.
 
 ## Documentation
+
+See the amazing process that results in near-pixel-perfect results!
 
 https://www.figma.com/design/X9pKhlTqwUZCOfAU1mpx1J/Untitled?node-id=0-1&t=7B3e6CiRgQO8czYf-1
 
