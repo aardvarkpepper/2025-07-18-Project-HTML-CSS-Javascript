@@ -1,16 +1,35 @@
 // this causes dotenv issue
 import { fetchIPAddress } from './server/server.js';
-import { API_KEY } from './server/server.js';
+//import { API_KEY } from './server/server.js';
+import { isLegalIPAddress } from './utils/utils.js';
 
 //console.log(`API key ${API_KEY}`);
 //console.log(`Server test success: ${server()}`);
 
-const mapDiv = document.getElementsByClassName('bottom')[0];
+var map = L.map('map').setView([0, 0], 13);
+var CustomIcon = L.Icon.extend({
+  options: {
+    iconSize: [48, 56],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76]
+  }
+});
+var blackIcon = new CustomIcon({ iconUrl: './images/icon-location.png' });
+L.icon = function (options) {
+  return new L.Icon(options);
+};
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
 const container = document.getElementById('container');
 const topId = document.getElementById('topId');
 const topTitle = document.getElementById('top-title');
 const bottom = document.getElementsByClassName('bottom')[0];
-const inputField = document.getElementById('input-field');
+const inputField = document.getElementById('input-field'); // also use for input
+const inputButton = document.getElementById('input-button');
 const center = document.getElementById('center');
 const verticalDividers = document.getElementsByClassName('vertical-divider');
 const subsections = document.getElementsByClassName('subsection');
@@ -142,34 +161,95 @@ const goMap = async () => {
   const lng = data.location.lng;
   //console.log(`Lat ${lat}, long ${lng}`);
   //var map = L.map('map').setView([51.505, -0.09], 13);
-  var map = L.map('map').setView([lat, lng], 13);
+  // var map = L.map('map').setView([lat, lng], 13);
+  map.setView([lat, lng], 13);
+  //map.setView([51.5072,0.1276],13);
 
 
   //console.log(map);
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
 
-  var CustomIcon = L.Icon.extend({
-    options: {
-      iconSize: [48, 56],
-      iconAnchor: [22, 94],
-      popupAnchor: [-3, -76]
-    }
-  });
 
-  var blackIcon = new CustomIcon({ iconUrl: './images/icon-location.png' });
+
   //note:  iconUrl is relative to *index.html*.
-
-  L.icon = function (options) {
-    return new L.Icon(options);
-  };
-
   L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.");
 }
 
 goMap();
 
+// add "keypress" checking for event.key;  Technically event isn't required on click.
+inputButton.addEventListener('click', async (event) => {
+  // test for 192.212.174.101, London.
+  const inputString = inputField.value;
+  console.log(inputString);
+  console.log(`Is it an IP address? ${isLegalIPAddress(inputString)}`);
+  console.log(`attempting to print map ${JSON.stringify(L)}`);
+  let data;
+
+  if (isLegalIPAddress(inputString)) {
+    // probably stick this stuff inside a function and call it on the else too.
+    try {
+      data = await fetchIPAddress(inputString, null);
+      const lat = data.location.lat;
+      const lng = data.location.lng;
+      map.setView(new L.LatLng(lat, lng), 13);
+      ipAddress.textContent = `${data.ip}`;
+      ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+      ipTimezone.textContent = `UTC ${data.location.timezone}`;
+      console.log(`ipIsp.textContent = ${data.isp}`);
+      if (data.isp === '') {
+        ipIsp.textContent = `Data not available.`
+      } else {
+        ipIsp.textContent = `${data.isp}`
+      }
+      // I've got another marker floating around but eh.
+      L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
+    } catch (error) {
+      console.error(`error`);
+      console.log(`Code: ${error.code}, Messages ${error.messages}, on scriptLegalIPAddress`)
+    }
+
+  } else {
+    try {
+
+
+      data = await fetchIPAddress(null, inputString); // sends argument domain
+      const lat = data.location.lat;
+      const lng = data.location.lng;
+      map.setView(new L.LatLng(lat, lng), 13);
+      ipAddress.textContent = `${data.ip}`;
+      ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+      ipTimezone.textContent = `UTC ${data.location.timezone}`;
+      console.log(`ipIsp.textContent = ${data.isp}`);
+      if (data.isp === '') {
+        ipIsp.textContent = `Data not available.`
+      } else {
+        ipIsp.textContent = `${data.isp}`
+      }
+      L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.")
+    }
+    catch (error) {
+      console.error(`error`, error);
+      console.log(`Code: ${error.code}, Messages ${error.messages} on scriptDomain`)
+    }
+  }
+
+
+
+
+  // for now, console.log whether it is a valid ip address or domain.
+  // We don't know if domain string will actually be a domain, so this is going to . . . possibly throw an error.  IP address could also be bogus.
+  // At any rate, if it is invalid (we won't know until we send it to Leaflet and it pops some sort of error, if it even will) - if it is invalid, then some sort of feedback on that (probably stick it in the input field), and do NOT call the method to refocus the map.
+  // if it IS valid, then pop in the map.  Okay.
+  /**
+   * ipAddress
+Optional. IPv4 or IPv6 to search location by.
+
+If the parameter is not specified, then it defaults to client request's public IP address.
+domain
+Optional. Domain name to search location by.
+
+If the parameter is not specified, then 'ipAddress' will be used.
+   */
+})
 

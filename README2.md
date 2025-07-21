@@ -104,6 +104,16 @@ https://www.w3schools.com/jsref/prop_style_paddingtop.asp
 
 https://stackoverflow.com/questions/8101364/javascript-to-get-running-processes note - in sum, states browser javascript environment is isolated from system processes for privacy and security reasons.  So document. (browser) and process. (system) will not be able to interact.  There's probably some workaround, but that's outside the scope of the assignment.
 
+https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
+https://en.wikipedia.org/wiki/IP_address
+https://en.wikipedia.org/wiki/IPv4
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv6_CIDR_blocks
+https://www.rexegg.com/regex-quickstart.php
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
+https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+https://stackoverflow.com/questions/12735303/how-to-change-the-map-center-in-leaflet-js
+
 
 note to self:  If user needs to run Express on their local end to run process.env or will deployed take this from Netlify?  Deploy, test, edit README.md if special instructions required to get things working!
 

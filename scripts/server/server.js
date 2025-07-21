@@ -44,11 +44,15 @@
 // });
 
 //export const API_KEY = process.env.API_KEY;
-export const API_KEY = `at_dygXiAyAFC60JTbZW0qdTK0u2On7f`;
+//export const API_KEY = `at_dygXiAyAFC60JTbZW0qdTK0u2On7f`;
 
-export const fetchIPAddress = async () => {
+export const fetchIPAddress = async (ipaddress = null, domain = null) => {
   //const API_KEY = process.env.API_KEY;
   //const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
+
+  //leave to monitor invocations; each uses up 2 points.a
+  console.log(`fetchIPAddress invoked with ipaddress ${ipaddress}, domain ${domain}`);
+
   /**
    * https://geo.ipify.org/docs
    * sample fetch GET
@@ -102,10 +106,19 @@ export const fetchIPAddress = async () => {
   //console.log(API_KEY);
   try {
     /**
-     * Restore below two lines of code when pushing to production.
+     * Restore below section of code when pushing to production.
      */
-
-    // const unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
+    
+    // let unprocessedIPData;
+    // if (ipaddress) {
+    //   console.log(`fetchIPAddress fetching with ip address argument. ${typeof(ipaddress)} ${ipaddress}`);
+    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?ipAddress=${ipaddress}&apiKey=${API_KEY}`)
+    // } else if (domain) {
+    //   console.log(`fetchIPAddress fetching with domain argument. ${typeof(domain)} ${domain}`);
+    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?domain=${domain}&apiKey=${API_KEY}`)
+    // } else {
+    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
+    // }
     // const data = await unprocessedIPData.json();
 
     /**
@@ -141,7 +154,8 @@ export const fetchIPAddress = async () => {
     const data = await dataPromise;
 
     // above through dataPromise to be removed when pushing to production.  Re-activate the fetch.
-    //console.log(data);
+    console.log(`Data received from server: ${JSON.stringify(data)} with arguments ipaddress ${ipaddress}, domain ${domain}`);
+    //When attempting to do nonexistent domain ("DomainHamsteR", get {"code":422,"messages":"Input correct domain."} as data.
     return data;
 
   } catch (error) {
