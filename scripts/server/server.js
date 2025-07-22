@@ -48,10 +48,10 @@
 
 export const fetchIPAddress = async (ipaddress = null, domain = null) => {
   //const API_KEY = process.env.API_KEY;
-  //const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
+  const API_KEY = 'at_dygXiAyAFC60JTbZW0qdTK0u2On7f';
 
-  //leave to monitor invocations; each uses up 2 points.a
-  console.log(`fetchIPAddress invoked with ipaddress ${ipaddress}, domain ${domain}`);
+  //leave to monitor invocations; each uses up 2 points.
+  //console.log(`fetchIPAddress invoked with ipaddress ${ipaddress}, domain ${domain}`);
 
   /**
    * https://geo.ipify.org/docs
@@ -109,52 +109,52 @@ export const fetchIPAddress = async (ipaddress = null, domain = null) => {
      * Restore below section of code when pushing to production.
      */
     
-    // let unprocessedIPData;
-    // if (ipaddress) {
-    //   console.log(`fetchIPAddress fetching with ip address argument. ${typeof(ipaddress)} ${ipaddress}`);
-    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?ipAddress=${ipaddress}&apiKey=${API_KEY}`)
-    // } else if (domain) {
-    //   console.log(`fetchIPAddress fetching with domain argument. ${typeof(domain)} ${domain}`);
-    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?domain=${domain}&apiKey=${API_KEY}`)
-    // } else {
-    //   unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
-    // }
-    // const data = await unprocessedIPData.json();
+    let unprocessedIPData;
+    if (ipaddress) {
+      //console.log(`fetchIPAddress fetching with ip address argument. ${typeof(ipaddress)} ${ipaddress}`);
+      unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?ipAddress=${ipaddress}&apiKey=${API_KEY}`)
+    } else if (domain) {
+      //console.log(`fetchIPAddress fetching with domain argument. ${typeof(domain)} ${domain}`);
+      unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?domain=${domain}&apiKey=${API_KEY}`)
+    } else {
+      unprocessedIPData = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
+    }
+    const data = await unprocessedIPData.json();
 
     /**
      * Take dataPromise and the const data below out when pushing to production.
      * https://ps-lms.vercel.app/curriculum/se/413/lesson-6
      */
 
-    const dataPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          ip: '71.183.93.127',
-          location: {
-            country: 'US',
-            region: 'New York',
-            city: 'New York City',
-            lat: 40.71427,
-            lng: -74.00597,
-            postalCode: '10001',
-            timezone: '-04:00',
-            geonameId: 5128581
-          },
-          as: {
-            asn: 701,
-            name: 'UUNET',
-            route: '71.183.0.0/17',
-            domain: 'https://www.verizon.com/business/',
-            type: 'NSP'
-          },
-          isp: 'Verizon'
-        }, 0);
-      })
-    })
-    const data = await dataPromise;
+    // const dataPromise = new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       ip: '71.183.93.127',
+    //       location: {
+    //         country: 'US',
+    //         region: 'New York',
+    //         city: 'New York City',
+    //         lat: 40.71427,
+    //         lng: -74.00597,
+    //         postalCode: '10001',
+    //         timezone: '-04:00',
+    //         geonameId: 5128581
+    //       },
+    //       as: {
+    //         asn: 701,
+    //         name: 'UUNET',
+    //         route: '71.183.0.0/17',
+    //         domain: 'https://www.verizon.com/business/',
+    //         type: 'NSP'
+    //       },
+    //       isp: 'Verizon'
+    //     }, 0);
+    //   })
+    // })
+    // const data = await dataPromise;
 
     // above through dataPromise to be removed when pushing to production.  Re-activate the fetch.
-    console.log(`Data received from server: ${JSON.stringify(data)} with arguments ipaddress ${ipaddress}, domain ${domain}`);
+    //console.log(`Data received from server: ${JSON.stringify(data)} with arguments ipaddress ${ipaddress}, domain ${domain}`);
     //When attempting to do nonexistent domain ("DomainHamsteR", get {"code":422,"messages":"Input correct domain."} as data.
     return data;
 

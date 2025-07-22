@@ -19,6 +19,37 @@ Responsive design for desktop and mobile.  Use of IP Geolocation API by IPify an
 
 IP Geolocation API does not return an error on submission of an invalid IP address or domain.  Rather, it returns an object {"code":422,"messages":"Input correct domain."} (or "messages" as appropriate) as a successful resolve of the fetch request.
 
+IP Geolocation API does not return ISP data on some requests.  Where this is true, I added a message 'Data not available'.
+
+IP Geolocation API returns the full name of a region (e.g. 'New York').  The specifications, however, display 'NY'.  There is no simple fast way to get state abbreviations; for example Alabama is AL, but Alaska is AK, Arizona is AZ.  Further, an IP would have to be looked up and tested for each state, against the IP Geolocation API, to confirm how state / region data is formatted there, and each such request uses up the very limited non-refreshing stock of requests.  I took the first letter of each word in the return, so New York is "NY", California is "C", and so on.
+
+<p align="center">
+<img src="active-states.png" alt="Screenshot of provided specifications showing state abbreviation used" width="600"/>
+</p>
+
+{
+  ip: '71.183.93.127',
+  location: {
+    country: 'US',
+    region: 'New York',
+    city: 'New York City',
+    lat: 40.71427,
+    lng: -74.00597,
+    postalCode: '10001',
+    timezone: '-04:00',
+    geonameId: 5128581
+   },
+   as: {
+    asn: 701,
+    name: 'UUNET',
+    route: '71.183.0.0/17',
+    domain: 'https://www.verizon.com/business/',
+    type: 'NSP'
+  },
+  isp: 'Verizon'
+}
+
+
 ## Challenges Faced
 
 Felt generally unwell, which was a challenge of itself.  This also caused me to not think clearly, increasing time required on matters that should have been routine like remembering multiple fields to fix for comparisons between Figma and HTML/CSS, or time needed to process and understand documentation.
