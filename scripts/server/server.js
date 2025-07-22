@@ -164,8 +164,8 @@ export const fetchIPAddress = async (ipaddress = null, domain = null) => {
   // console.log(data);
 }
 
-export const server = () => {
-  return 'server test';
-}
+// export const server = () => {
+//   return 'server test';
+// }
 
-fetchIPAddress();
+// fetchIPAddress();

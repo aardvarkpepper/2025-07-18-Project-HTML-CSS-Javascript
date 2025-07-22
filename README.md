@@ -1,3 +1,7 @@
+## Deploy
+
+[Project-HTML-CSS-Javascript](teal-mandazi-6c61c2.netlify.app)
+
 ## Attribution
 
 https://www.openstreetmap.org/copyright
@@ -23,10 +27,9 @@ IP Geolocation API does not return ISP data on some requests.  Where this is tru
 
 IP Geolocation API returns the full name of a region (e.g. 'New York').  The specifications, however, display 'NY'.  There is no simple fast way to get state abbreviations; for example Alabama is AL, but Alaska is AK, Arizona is AZ.  Further, an IP would have to be looked up and tested for each state, against the IP Geolocation API, to confirm how state / region data is formatted there, and each such request uses up the very limited non-refreshing stock of requests.  I took the first letter of each word in the return, so New York is "NY", California is "C", and so on.
 
-<p align="center">
-<img src="active-states.png" alt="Screenshot of provided specifications showing state abbreviation used" width="600"/>
-</p>
+![Screenshot of provided specifications showing state abbreviation used](./active-states.jpg)
 
+```
 {
   ip: '71.183.93.127',
   location: {
@@ -48,17 +51,17 @@ IP Geolocation API returns the full name of a region (e.g. 'New York').  The spe
   },
   isp: 'Verizon'
 }
-
+```
 
 ## Challenges Faced
 
-Felt generally unwell, which was a challenge of itself.  This also caused me to not think clearly, increasing time required on matters that should have been routine like remembering multiple fields to fix for comparisons between Figma and HTML/CSS, or time needed to process and understand documentation.
+Felt generally unwell, which was a challenge of itself.  This also caused me to not think clearly, increasing time required on matters that should have been routine like remembering multiple fields to fix for comparisons between Figma and HTML/CSS, or time needed to process and understand documentation.  Eh.  Could be worse.
 
-Spent a lot of time between Figma, HTML, and CSS styling to get results within a pixel or less of design specifications.  I think that level of precision may not have been expected for the assignment.
+Spent a lot of time between Figma, HTML, and CSS styling to get results within a pixel or less of design specifications.  I think that level of precision may not really have been necessary for the assignment.
 
-One of the major early issues was getting Leaflet functionality to work.  The issue turned out to be z-index; Leaflet does not work correctly if the div it uses is set to a different z-level than expected.  Tried rather a lot of things, including looking at the code (fairly incomprehensible, in scripts/wonderfulMystery.js), reading a lot of useless help articles, then set up a separate test website with stripped-down functionality to isolate behaviors.  On isolating issue and reading articles, it appears the default z-index is set to 650 or some such thing; changing it breaks the map functionality, and I'd set it to -1 or something like that to work with my CSS layout.
+One of the major early issues was getting Leaflet functionality to work.  The issue turned out to be z-index; Leaflet does not work correctly if the div it uses is set to a different z-level than expected.  Tried rather a lot of things before finding that out, including looking at the code (fairly incomprehensible, in scripts/wonderfulMystery.js), reading a lot of useless help articles, then set up a separate test website with stripped-down functionality to isolate behaviors.  On isolating issue and reading articles, it appears the default z-index is set to 650 or some such thing; changing it breaks the map functionality, and I'd set it to -1 or something like that to work with my CSS layout.
 
-Another major early issue was securing API keys.  It seems that npm dotenv uses 'process.' while the browser uses 'document.' or 'window.'  At any rate, the browser seemingly doesn't have access to 'process.' for privacy and security issues.  I'd read that npm express could be used to address the issue, but I didn't get a working solution in time.  I did manage to get express working on a local port, and to display a webpage, but the assignment wasn't to write things in express.  As a workaround I can expose the API key; it's not linked to any sort of paying account (though API usage is sharply limited).  I haven't deployed yet, so I don't know if I'll be able to get Netlify's .env working.  At any rate, spent a lot of time on this.
+Another major early issue was securing API keys; spent several hours on this.  It seems that npm dotenv uses 'process.' while the browser uses 'document.' or 'window.'  At any rate, the browser seemingly doesn't have access to 'process.' for privacy and security issues.  I'd read that npm express could be used to address the issue, but I didn't get a working solution in time.  I did manage to get express working on a local port, and to display a webpage, but the assignment wasn't to write things in express.   Looks like Netlify's env may require a bit more time to read up on than I'd like to considering time remaining, so I'll put the API key in the code.
 
 A third issue was getting my design to work with Leaflet.  I learned early from documentation that Leaflet rendered onto a div with id 'map'; I created one desktop view and one mobile view, hiding or displaying them alternately using media queries.  (This approach let me prototype both views early, and would have reduced DOM operations).  I got commands working for detecting and acting when the window was resized, but the problem was assigning id 'map' to another HTML element did not cause the map to switch.  I again attempted isolating behavior, but was unsuccessful in resolving this issue.  I ended up changing properties of existing HTML elements depending on window size - a more time-consuming operation as far as writing code was concerned, but possibly inevitable.  (I could have tried persisting with getting Leaflet to work with reassigning "id", but time was running short and that solution was not certain).
 
@@ -72,11 +75,11 @@ As design was constrained by specifications provided by Frontend Mentor, some fe
 
 The app feature set is too bare for my taste.  Yes, it's interesting that a user can see a map and marker of their internet service provider, or put in another IP and see a location, but that's quite limited.  I'd probably want to think about related additional features to add, like building a database of nearby ISPs and show comparative service costs per service period - or anything, really, that would get a user interested in using the site repeatedly.
 
-Finally, I don't know whether or not there's a way to secure API keys through the current tech stack of HTML, CSS, and Javascript.  I'll find out shortly if I can secure through Netlify.
+Finally, I don't know whether or not there's a way to secure API keys through the current tech stack of HTML, CSS, and Javascript.  I expect I'll look into it sometime.
 
 ## Documentation
 
-See the amazing process that results in near-pixel-perfect results!
+See the amazing process that results in near-pixel-perfect results!  (It's not that amazing, it's just a lot of measurements, notes, opacity 20% overlays, comparisons, adjustments.  Or maybe that is amazing.  Hm.)
 
 https://www.figma.com/design/X9pKhlTqwUZCOfAU1mpx1J/Untitled?node-id=0-1&t=7B3e6CiRgQO8czYf-1
 
