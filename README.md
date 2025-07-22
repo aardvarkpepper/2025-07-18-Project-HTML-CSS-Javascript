@@ -1,6 +1,6 @@
 ## Deploy
 
-[Project-HTML-CSS-Javascript](teal-mandazi-6c61c2.netlify.app)
+[Project-HTML-CSS-Javascript](https://teal-mandazi-6c61c2.netlify.app)
 
 ## Attribution
 
