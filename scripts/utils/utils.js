@@ -34,3 +34,76 @@ export const isLegalIPAddress = (inputString) => {
 // console.log(isLegalIPAddress('000.111.222.256') === false);
 // console.log(isLegalIPAddress('0000.ffff.0000.1111.2222.3333.4444.5555') === true);
 // console.log(isLegalIPAddress('0000.ffff.000g.1111.2222.3333.4444.5555') === false);
+
+export const getStateAbbreviationOrDefault = (stringInput) => {
+  const data = new Map([
+    ['Arizona', 'AZ'],
+    ['Alabama', 'AL'],
+    ['Alaska', 'AK'],
+    ['American Samoa', 'AS'],
+    ['Arkansas', 'AR'],
+    ['California', 'CA'],
+    ['Colorado', 'CO'],
+    ['Connecticut', 'CT'],
+    ['Delaware', 'DE'],
+    ['District of Columbia', 'DC'],
+    ['Florida', 'FL'],
+    ['Georgia', 'GA'],
+    ['Guam', 'GU'],
+    ['Hawaii', 'HI'],
+    ['Idaho', 'ID'],
+    ['Illinois', 'IL'],
+    ['Indiana', 'IN'],
+    ['Iowa', 'IA'],
+    ['Kansas', 'KS'],
+    ['Kentucky', 'KY'],
+    ['Louisiana', 'LA'],
+    ['Maine', 'ME'],
+    ['Maryland', 'MD'],
+    ['Massachusetts', 'MA'],
+    ['Michigan', 'MI'],
+    ['Minnesota', 'MN'],
+    ['Mississippi', 'MS'],
+    ['Missouri', 'MO'],
+    ['Montana', 'MT'],
+    ['Nebraska', 'NE'],
+    ['Nevada', 'NV'],
+    ['New Hampshire', 'NH'],
+    ['New Jersey', 'NJ'],
+    ['New Mexico', 'NM'],
+    ['New York', 'NY'],
+    ['North Carolina', 'NC'],
+    ['North Dakota', 'ND'],
+    ['Northern Marina Islands', 'MP'],
+    ['Ohio', 'OH'],
+    ['Oklahoma', 'OK'],
+    ['Oregon', 'OR'],
+    ['Pennsylvania', 'PA'],
+    ['Puerto Rico', 'PR'],
+    ['Rhode Island', 'RI'],
+    ['South Carolina', 'SC'],
+    ['South Dakota', 'SD'],
+    ['Tennessee', 'TN'],
+    ['Texas', 'TX'],
+    ['Trust Territories', 'TT'],
+    ['Utah', 'UT'],
+    ['Vermont', 'VT'],
+    ['Virgin Islands', 'VI'],
+    ['Virginia', 'VA'],
+    ['Washington', 'WA'],
+    ['West Virginia', 'WV'],
+    ['Wisconsin', 'WI'],
+    ['Wyoming', 'WY'],
+  ])
+  if (data.has(stringInput)) {
+    return data.get(stringInput);
+  } else {
+    return stringInput;
+  }
+}
+
+// console.log(getStateAbbreviationOrDefault('California') === "CA");
+// console.log(getStateAbbreviationOrDefault('New York') === "NY");
+// console.log(getStateAbbreviationOrDefault('Great Britain') === "Great Britain");
+// console.log(getStateAbbreviationOrDefault('Guam') === "GU");
+// console.log(getStateAbbreviationOrDefault('Californya') === "Californya");

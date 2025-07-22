@@ -1,6 +1,6 @@
 // this causes dotenv issue
 import { fetchIPAddress } from './server/server.js';
-import { isLegalIPAddress } from './utils/utils.js';
+import { isLegalIPAddress, getStateAbbreviationOrDefault } from './utils/utils.js';
 
 //console.log(`API key ${API_KEY}`);
 //console.log(`Server test success: ${server()}`);
@@ -153,7 +153,7 @@ const goMap = async () => {
   // const ipTimezone = document.getElementById('ip-timezone'); // UTC -05:00
   // const ipIsp = document.getElementById('ip-isp'); // SpaceX Starlink
   ipAddress.textContent = `${data.ip}`;
-  ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+  ipLocation.textContent = `${data.location.city}, ${getStateAbbreviationOrDefault(data.location.region)} ${data.location.postalCode}`;
   ipTimezone.textContent = `UTC ${data.location.timezone}`;
   ipIsp.textContent = `${data.isp}`;
   const lat = data.location.lat;
@@ -164,11 +164,7 @@ const goMap = async () => {
   map.setView([lat, lng], 13);
   //map.setView([51.5072,0.1276],13);
 
-
   //console.log(map);
-
-
-
 
   //note:  iconUrl is relative to *index.html*.
   L.marker([lat, lng], { icon: blackIcon }).addTo(map).bindPopup("IP address location.");
@@ -197,7 +193,7 @@ inputButton.addEventListener('click', async (event) => {
         const lng = data.location.lng;
         map.setView(new L.LatLng(lat, lng), 13);
         ipAddress.textContent = `${data.ip}`;
-        ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+        ipLocation.textContent = `${data.location.city}, ${getStateAbbreviationOrDefault(data.location.region)} ${data.location.postalCode}`;
         ipTimezone.textContent = `UTC ${data.location.timezone}`;
         //console.log(`ipIsp.textContent = ${data.isp}`);
         if (data.isp === '') {
@@ -222,7 +218,7 @@ inputButton.addEventListener('click', async (event) => {
         const lng = data.location.lng;
         map.setView(new L.LatLng(lat, lng), 13);
         ipAddress.textContent = `${data.ip}`;
-        ipLocation.textContent = `${data.location.city}, ${data.location.region.split(" ").map(element => element[0]).join("")} ${data.location.postalCode}`;
+        ipLocation.textContent = `${data.location.city}, ${getStateAbbreviationOrDefault(data.location.region)} ${data.location.postalCode}`;
         ipTimezone.textContent = `UTC ${data.location.timezone}`;
         //console.log(`ipIsp.textContent = ${data.isp}`);
         if (data.isp === '') {
