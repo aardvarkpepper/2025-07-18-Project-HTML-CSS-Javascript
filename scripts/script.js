@@ -1,6 +1,5 @@
 // this causes dotenv issue
 import { fetchIPAddress } from './server/server.js';
-//import { API_KEY } from './server/server.js';
 import { isLegalIPAddress } from './utils/utils.js';
 
 //console.log(`API key ${API_KEY}`);
